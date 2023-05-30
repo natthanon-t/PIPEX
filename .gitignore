@@ -1,0 +1,7 @@
+*/*.a
+*.a
+*/*.o
+*.o
+.vscode
+a.out*
+main.c
