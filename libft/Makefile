@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/05/29 12:21:09 by ntairatt          #+#    #+#              #
+#    Updated: 2023/05/30 15:35:20 by ntairatt         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 
 CC = cc
@@ -22,38 +34,25 @@ DIR_SRC = src
 
 AR = ar -rcs
 
-RM = rm -rf
+RM = rm -f
 
 OBJS = $(addprefix $(DIR_SRC)/, $(SRCS:.c=.o))
 
-%.o: %.c
-	@printf "\033[0;32mGenerating libft... %-60s\r" $@
-	@${CC} ${CFLAGS} -c $< -o $@
 
 $(NAME): $(OBJS)
 		@$(AR) $(NAME) $(OBJS)
-		@echo "-----------------------------------------------"
 		@echo "libft is ready"
-		@echo "-----------------------------------------------"
 
 .PHONY: all clean fclean re norm
 all: $(NAME)
 
 clean:
 		@$(RM) $(OBJS)
-		@clear
 		@echo "object files of libft has removed"
-		
+
 
 fclean: clean
 		@$(RM) $(NAME)
 		@echo "libft has removed"
 
 re: fclean all
-
-norm:
-	@echo "Norminette is Checking......"
-	@echo "-----------------------------------------------"
-	@norminette $(addprefix $(DIR_SRC)/, $(SRCS))
-	@echo "-----------------------------------------------"
-

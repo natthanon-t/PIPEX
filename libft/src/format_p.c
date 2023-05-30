@@ -6,13 +6,13 @@
 /*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:39:05 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/03/30 13:00:12 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/05/29 12:10:33 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	format_p(unsigned long int nbr, int *len)
+void	format_p(unsigned long nbr, int *len)
 {
 	if (nbr >= 16)
 	{
