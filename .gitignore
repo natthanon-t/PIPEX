@@ -4,4 +4,4 @@
 *.o
 .vscode
 a.out*
-main.c
+*.txt

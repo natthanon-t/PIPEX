@@ -6,7 +6,7 @@
 /*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:00:34 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/05/30 17:08:34 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/01 13:38:31 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 #include "libft/include/ft_printf.h"
 #include "libft/include/libft.h"
 
-int	main(int argc, char **argv)
+int	main(int argc, char **argv, char **envp)
 {
 	pid_t	pid1;
 	pid_t	pid2;
 	int		fd[2];
 
-	pid1 = fork();
-	if (pipe(&pid1) == -1)
+	if (pipe(fd) == -1)
 	{
-		ft_printf("fork of pid1 error!");
+		ft_printf("pipe error");
 		return (1);
 	}
+	pid1 = fork();
 	if (pid1 == 0)
 	{
 		dup2(fd[1], STDOUT_FILENO);
