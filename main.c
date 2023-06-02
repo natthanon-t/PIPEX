@@ -1,19 +1,20 @@
 #include <stdio.h>
 #include "include/pipex.h"
 
-int main(int argc, char **argv)
+int main(int argc, char **argv, char **envp)
 
 /* Example of using argument command line */
 
-//{
-//	int i =0;
-//	/* argv[0] - program's name */ 
-//	while (argv[i])
-//	{
-//		printf("argv[%d] = %s\n", i, argv[i]);
-//		i++;
-//	}
-//}
+{
+	int i =0;
+	/* argv[0] - program's name */ 
+	while (argv[i])
+	{
+		printf("argv[%d] = %s\n", i, argv[i]);
+		i++;
+	}
+	printf("argc = %d\n", argc);
+}
 
 /* Example of using pipe */
 
@@ -46,7 +47,16 @@ int main(int argc, char **argv)
 
 /* Example of using execve */
 
-{
-	char *path[] = {"/bin/ls", "-l", NULL};
-	execve(path[0], path, "test.txt");
-}
+//{
+//	char *path[] = {"/bin/ls", "-l", NULL};
+//	execve(path[0], path, NULL);
+//}
+
+/* Example of using environment vairable */
+
+//{
+//	int i = 0;
+
+//	while (envp[i])
+//		printf("path = %s\n", envp[i++]);
+//}

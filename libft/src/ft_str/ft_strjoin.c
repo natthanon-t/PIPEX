@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 10:40:20 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/02 13:36:19 by ntairatt         ###   ########.fr       */
+/*   Created: 2022/09/13 17:16:58 by ntairatt          #+#    #+#             */
+/*   Updated: 2023/06/02 13:43:19 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*fs;
+	size_t	i;
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <stdio.h>
-
-char	*get_next_line(int fd);
-size_t	ft_strlen(const char *s);
-int		next_char(char *str, char c);
-
-#endif
+	i = 0;
+	fs = (char *)malloc(((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char)));
+	if (!fs)
+		return (NULL);
+	while (*s1)
+	{
+		fs[i] = *s1++;
+		i++;
+	}
+	while (*s2)
+	{
+		fs[i] = *s2++;
+		i++;
+	}
+	fs[i] = '\0';
+	return (fs);
+}
