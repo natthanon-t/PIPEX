@@ -39,6 +39,7 @@ SRCS = ft_is/ft_isalpha.c \
 			ft_str/ft_strmapi.c \
 			ft_str/ft_striteri.c \
 			ft_str/ft_strdup.c \
+			ft_str/ft_strjoin.c \
 			ft_put/ft_putchar_fd.c \
 			ft_put/ft_putstr_fd.c \
 			ft_put/ft_putendl_fd.c \

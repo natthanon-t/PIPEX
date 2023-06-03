@@ -1,62 +1,16 @@
-#include <stdio.h>
 #include "include/pipex.h"
+#include "libft/include/libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 int main(int argc, char **argv, char **envp)
-
-/* Example of using argument command line */
-
 {
-	int i =0;
-	/* argv[0] - program's name */ 
-	while (argv[i])
-	{
-		printf("argv[%d] = %s\n", i, argv[i]);
-		i++;
-	}
-	printf("argc = %d\n", argc);
+	char **path_all = split_path(envp);
+	char *path = find_path(path_all, "grep");
+
+	printf("path of ls = %s\n", path);
 }
-
-/* Example of using pipe */
-
-//{
-//	int fd[2];
-
-//	pipe(fd);
-//	int id = fork();
-//	if (id == 0)
-//	{
-//		close(fd[0]);
-//		int x;
-//		printf("Input number of X: ");
-//		scanf("%d", &x);
-//		write(fd[1], &x, sizeof(int));
-//		close(fd[1]);
-//		printf("Sending to parent Process....\n");
-//		sleep(1);
-//	}
-//	else
-//	{
-//		wait(NULL);
-//		close(fd[1]);
-//		int y;
-//		read(fd[0], &y, sizeof(int));
-//		close(fd[0]);
-//		printf("x = %d\n", y);
-//	}
-//}
-
-/* Example of using execve */
-
-//{
-//	char *path[] = {"/bin/ls", "-l", NULL};
-//	execve(path[0], path, NULL);
-//}
-
-/* Example of using environment vairable */
-
-//{
-//	int i = 0;
-
-//	while (envp[i])
-//		printf("path = %s\n", envp[i++]);
-//}

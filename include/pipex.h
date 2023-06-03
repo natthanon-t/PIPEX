@@ -6,7 +6,7 @@
 /*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:02:04 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/05/30 15:26:44 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/03 18:10:08 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,8 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/wait.h>
+
+char	**split_path(char **envp);
+char	*find_path(char **path, char *cmd);
 
 #endif
