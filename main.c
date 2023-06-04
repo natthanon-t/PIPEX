@@ -9,8 +9,9 @@
 
 int main(int argc, char **argv, char **envp)
 {
-	char **path_all = split_path(envp);
-	char *path = find_path(path_all, "grep");
-
-	printf("path of ls = %s\n", path);
+	//char **path_all = split_path(envp);
+	//char *path = find_path(path_all, "grep");
+	int fd = open("test1", O_WRONLY);
+	printf("fd = %d\n", fd);
+	//printf("path of ls = %s\n", path);
 }
