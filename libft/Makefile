@@ -6,7 +6,7 @@
 #    By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 12:21:09 by ntairatt          #+#    #+#              #
-#    Updated: 2023/06/02 18:28:50 by ntairatt         ###   ########.fr        #
+#    Updated: 2023/06/04 12:31:44 by ntairatt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,12 +80,12 @@ $(NAME): $(OBJS)
 		@$(AR) $(NAME) $(OBJS)
 		@echo "Libft is ready"
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus norm
 all: $(NAME)
 
 clean:
 		@$(RM) $(OBJS) $(OBJB)
-		@echo "Object files of libft has removed"
+		@echo "Object files of Libft has removed"
 
 fclean: clean
 		@$(RM) $(NAME)
@@ -97,3 +97,7 @@ bonus: $(OBJS) $(OBJB)
 		@echo "Libft is ready"
 
 re: fclean all
+
+norm:
+	@norminette $(DIR_INC)
+	@norminette $(addprefix $(DIR_SRC)/, $(SRCS) $(BONUS_SRCS))

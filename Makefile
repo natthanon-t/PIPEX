@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/30 15:00:30 by ntairatt          #+#    #+#              #
-#    Updated: 2023/06/03 21:59:53 by ntairatt         ###   ########.fr        #
+#    Updated: 2023/06/04 12:31:39 by ntairatt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ CFLAGS	=	-I$(DIR_INC)
 
 SRCS	=	pipex.c \
 				child.c \
-				check_path.c
+				check_path.c \
+				ft_free.c
 
 LIBFT	=	libft/libft.a
 
@@ -30,7 +31,7 @@ RM	=	rm -f
 
 $(NAME):
 	@make bonus -C libft
-	$(CC) $(CFLAGS) $(SRCS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRCS)  $(LIBFT) -o $(NAME)
 
 .PHONY: all clean fclean re norm
 all: $(NAME)
@@ -38,10 +39,18 @@ all: $(NAME)
 clean:
 		@$(RM) $(OBJS)
 		@make clean -C libft
-		@echo "Object of pipex has removed"
+		@echo "Object files of Pipex has removed"
 
 fclean: clean
 		@$(RM) $(NAME)
-		@echo "pipex has removed"
+		@echo "Pipex has removed"
 
 re: fclean all
+
+norm:
+	@echo "---------------- Libft -------------------"
+	@make norm -C libft
+	@echo "------------------------------------------\n"
+	@echo "---------------- PIPEX -------------------"
+	@norminette $(SRCS) $(DIR_INC)	
+	@echo "------------------------------------------\n"
