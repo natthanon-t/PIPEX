@@ -6,7 +6,7 @@
 /*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:00:34 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/04 11:53:32 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/04 15:24:54 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	pipex(int file1, int file2, char **argv, char **envp)
 	if (pid1 == -1)
 		return (perror("Fork1"));
 	if (pid1 == 0)
-		first_child(file1, end, argv[2], envp);
+		first_child(file1, end, full_cmd(argv[2], envp), envp);
 	pid2 = fork();
 	if (pid2 == -1)
 		return (perror("Fork2"));
 	if (pid2 == 0)
-		second_child(file2, end, argv[3], envp);
+		second_child(file2, end, full_cmd(argv[3], envp), envp);
 	close(end[0]);
 	close(end[1]);
 	waitpid(pid1, &status, 0);

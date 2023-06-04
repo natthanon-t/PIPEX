@@ -11,7 +11,11 @@ int main(int argc, char **argv, char **envp)
 {
 	//char **path_all = split_path(envp);
 	//char *path = find_path(path_all, "grep");
-	int fd = open("test1", O_WRONLY);
-	printf("fd = %d\n", fd);
+	char **str;
+
+	str = full_cmd("ls -b -c", envp);
+	for (int i =0; str[i]; i++)
+		printf("path of cmd = %s\n", str[i]);
+	free_2(str);
 	//printf("path of ls = %s\n", path);
 }

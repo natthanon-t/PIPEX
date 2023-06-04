@@ -6,7 +6,7 @@
 /*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:02:04 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/04 12:16:30 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/04 15:43:41 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@
 
 char	**split_path(char **envp);
 char	*find_path(char **path, char *cmd);
-void	first_child(int file1, int *end, char *cmd1, char **envp);
-void	second_child(int file2, int *end, char *cmd2, char **envp);
+void	first_child(int file1, int *end, char **cmd, char **envp);
+void	second_child(int file2, int *end, char **cmd, char **envp);
 void	free_2(char **str);
+char	**full_cmd(char *cmd, char **envp);
+int		ft_2dlen(char **str);
 
 #endif
