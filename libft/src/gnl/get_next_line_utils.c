@@ -6,21 +6,11 @@
 /*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:43:48 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/02 13:35:45 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/06 16:24:37 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
 
 int	next_char(char *str, char c)
 {

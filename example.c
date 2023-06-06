@@ -1,4 +1,6 @@
 #include "include/pipex.h"
+#include "libft/include/libft.h"
+#include "libft/include/get_next_line.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -59,11 +61,11 @@ int main(int argc, char **argv, char **envp)
 
 /* Example of using environment vairable */
 
-{
-	int i = -1;
-	while (envp[++i])
-		printf("no%d %s\n", i, envp[i]);
-}
+//{
+//	int i = -1;
+//	while (envp[++i])
+//		printf("no%d %s\n", i, envp[i]);
+//}
 
 /* Example of using dup/dup2 */
 
@@ -130,5 +132,22 @@ int main(int argc, char **argv, char **envp)
 
 //{
 //	// success return 0 else 1
-//	printf("Access Return = %d\n", access("pp", 0));
+//	int i = -2;
+//	while (++i < 10)
+//		printf("i = %d, Access Return = %d\n", i, access("/bin/ls", i));
 //}
+
+/* Example of using open */
+
+{
+	int fd = open("a.out", O_RDONLY);
+	printf("fd of a.out = %d\n", fd);
+	char *test;
+	int i = 5;
+	while (i--)
+	{
+		test = get_next_line(fd);
+		printf("%s", test);
+		free(test);
+	}
+}
