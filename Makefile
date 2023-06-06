@@ -6,7 +6,7 @@
 #    By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/30 15:00:30 by ntairatt          #+#    #+#              #
-#    Updated: 2023/06/04 12:31:39 by ntairatt         ###   ########.fr        #
+#    Updated: 2023/06/06 15:17:14 by ntairatt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,20 +14,24 @@ NAME	=	pipex
 
 CC	=	cc
 
-#CFLAGS = -Wall -Wextra -Werror -I$(DIR_INC)
-CFLAGS	=	-I$(DIR_INC)
+#CFLAGS = -Wall -Wextra -Werror -I$(DIR_INC) -I$(LIBFT_DIR)
+CFLAGS	=	-I$(DIR_INC) -I$(LIBFT_DIR)
 
 SRCS	=	pipex.c \
 				child.c \
 				check_path.c \
+				check_error.c \
 				ft_free.c
+				
 
 LIBFT	=	libft/libft.a
+
+LIBFT_DIR = libft/include
 
 DIR_INC	=	include
 DIR_SRC	=	src
 
-RM	=	rm -f
+RM	=	rm -rf
 
 $(NAME):
 	@make bonus -C libft

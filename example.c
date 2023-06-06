@@ -62,7 +62,7 @@ int main(int argc, char **argv, char **envp)
 {
 	int i = -1;
 	while (envp[++i])
-		printf("no%d path = %s\n", i, envp[i]);
+		printf("no%d %s\n", i, envp[i]);
 }
 
 /* Example of using dup/dup2 */

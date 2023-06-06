@@ -6,19 +6,23 @@
 /*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 17:37:56 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/04 17:38:32 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/06 15:43:02 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/pipex.h"
-#include "libft/include/libft.h"
+#include "pipex.h"
+#include "libft.h"
 
 char	**split_path(char **envp)
 {
 	char	*all_path;
 	char	**path;
+	int		i;
 
-	all_path = ft_substr(envp[2], 5, ft_strlen(envp[2]));
+	i = 0;
+	while (ft_strncmp(envp[i], "PATH", 4) != 0)
+		i++;
+	all_path = ft_substr(envp[i], 5, ft_strlen(envp[i]));
 	path = ft_split(all_path, ':');
 	free(all_path);
 	return (path);
@@ -33,6 +37,8 @@ char	*find_path(char **path, char *cmd)
 
 	i = 0;
 	new_cmd = ft_split(cmd, ' ');
+	if (access(new_cmd[0], 0) == 0)
+		return (new_cmd[0]);
 	cmd_test = ft_strjoin("/", new_cmd[0]);
 	while (path[i])
 	{
@@ -45,9 +51,9 @@ char	*find_path(char **path, char *cmd)
 		}
 		free(path_test);
 	}
-	perror("path");
 	free_2(new_cmd);
 	free(cmd_test);
+	error("cannot find path");
 	return (NULL);
 }
 
