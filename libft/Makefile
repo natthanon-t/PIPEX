@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+         #
+#    By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 12:21:09 by ntairatt          #+#    #+#              #
-#    Updated: 2023/06/04 12:31:44 by ntairatt         ###   ########.fr        #
+#    Updated: 2023/06/06 19:29:43 by ntairatt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ BONUS_SRCS = ft_lst/ft_lstnew.c \
 				ft_lst/ft_lstdelone.c \
 				ft_lst/ft_lstclear.c \
 				ft_lst/ft_lstiter.c \
-				ft_lst/ft_lstmap.c 
+				ft_lst/ft_lstmap.c
 
 DIR_INC = include
 DIR_SRC = src
@@ -85,7 +85,7 @@ all: $(NAME)
 
 clean:
 		@$(RM) $(OBJS) $(OBJB)
-		@echo "Object files of Libft has removed"
+		@echo "Object files of libft has removed"
 
 fclean: clean
 		@$(RM) $(NAME)
@@ -99,5 +99,4 @@ bonus: $(OBJS) $(OBJB)
 re: fclean all
 
 norm:
-	@norminette $(DIR_INC)
-	@norminette $(addprefix $(DIR_SRC)/, $(SRCS) $(BONUS_SRCS))
+	@norminette include src

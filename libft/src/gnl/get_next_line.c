@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 12:41:30 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/02 13:41:10 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/06 18:57:33 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static char	*ft_strjoin(char *s1, char *s2)
 	}
 	if (!s2)
 		return (s1);
-	fs = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	fs = (char *)malloc((ft_count(s1) + ft_count(s2) + 1) * sizeof(char));
 	if (!fs)
 		return (NULL);
 	j = 0;
@@ -127,7 +127,7 @@ static char	*update_buf(char *buf)
 	}
 	while (buf[i] != '\n')
 		i++;
-	new_buf = (char *)malloc(sizeof(char) * (ft_strlen(buf) - i));
+	new_buf = (char *)malloc(sizeof(char) * (ft_count(buf) - i));
 	if (!new_buf)
 		return (NULL);
 	i = 0;
