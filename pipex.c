@@ -6,7 +6,7 @@
 /*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:00:34 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/07 15:11:08 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:30:31 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	pipex(int file2, char **argv, char **envp)
 
 int	main(int argc, char **argv, char **envp)
 {
-	int	end[2];
 	int	file2;
 
 	if (argc != 5)
