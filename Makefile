@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/30 15:00:30 by ntairatt          #+#    #+#              #
-#    Updated: 2023/06/06 21:01:09 by ntairatt         ###   ########.fr        #
+#    Updated: 2023/06/07 15:08:31 by ntairatt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME	=	pipex
 
 CC	=	cc
 
-#CFLAGS = -Wall -Wextra -Werror -I$(DIR_INC) -I$(LIBFT_DIR)
-CFLAGS	=	-I$(DIR_INC) -I$(LIBFT_DIR)
+CFLAGS = -Wall -Wextra -Werror -I$(DIR_INC) -I$(LIBFT_DIR)
+#CFLAGS	=	-I$(DIR_INC) -I$(LIBFT_DIR)
 
 SRCS	=	pipex.c \
 				child.c \

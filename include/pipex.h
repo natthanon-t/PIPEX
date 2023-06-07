@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:02:04 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/06 21:00:43 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:06:58 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,9 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 
-typedef struct s_var
-{
-	int		file1;
-	int		file2;
-	int		end[2];
-	char	**path;
-	char	**cmd;
-	char	**envp;
-}				t_var;
-
 char	**split_path(char **envp);
 char	*find_path(char **path, char *cmd);
-void	first_child(int file1, int *end, char **cmd, char **envp);
+void	first_child(char **argv, int *end, char **envp);
 void	second_child(int file2, int *end, char **cmd, char **envp);
 void	free_2(char **str);
 char	**full_cmd(char *cmd, char **envp);

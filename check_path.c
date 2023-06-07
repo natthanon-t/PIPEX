@@ -6,7 +6,7 @@
 /*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 17:37:56 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/06 15:43:02 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/07 14:37:57 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*find_path(char **path, char *cmd)
 	}
 	free_2(new_cmd);
 	free(cmd_test);
-	error("cannot find path");
+	message_error("command not found: ", cmd);
 	return (NULL);
 }
 
