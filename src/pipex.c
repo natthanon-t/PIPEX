@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:00:34 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/07 15:30:31 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/07 22:26:34 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv, char **envp)
 
 	if (argc != 5)
 		error("Input parameter error");
-	file2 = open(argv[4], O_TRUNC | O_WRONLY | O_CREAT, 0777);
+	file2 = open(argv[4], O_TRUNC | O_WRONLY | O_CREAT, 0644);
 	if (file2 == -1)
 		message_error("no such file or directory: ", argv[4]);
 	pipex(file2, argv, envp);

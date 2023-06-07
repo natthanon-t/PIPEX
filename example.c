@@ -12,16 +12,16 @@ int main(int argc, char **argv, char **envp)
 
 /* Example of using argument command line */
 
-//{
-//	int i =0;
-//	/* argv[0] - program's name */ 
-//	while (argv[i])
-//	{
-//		printf("argv[%d] = %s\n", i, argv[i]);
-//		i++;
-//	}
-//	printf("argc = %d\n", argc);
-//}
+{
+	int i =0;
+	/* argv[0] - program's name */
+	while (argv[i])
+	{
+		printf("argv[%d] = %s\n", i, argv[i]);
+		i++;
+	}
+	printf("argc = %d\n", argc);
+}
 
 /* Example of using pipe function */
 
@@ -86,12 +86,12 @@ int main(int argc, char **argv, char **envp)
 //    if (pipe(fd) == -1) {
 //        return;
 //    }
-    
+
 //    int pid1 = fork();
 //    if (pid1 < 0) {
 //        return 2;
 //    }
-    
+
 //    if (pid1 == 0) {
 //        // Child process 1 (ping)
 //        dup2(fd[1], STDOUT_FILENO);
@@ -99,12 +99,12 @@ int main(int argc, char **argv, char **envp)
 //        close(fd[1]);
 //        execlp("ping", "ping", "-c", "5", "google.com", NULL);
 //    }
-    
+
 //    int pid2 = fork();
 //    if (pid2 < 0) {
 //        return 3;
 //    }
-    
+
 //    if (pid2 == 0) {
 //        // Child process 2 (grep)
 //        dup2(fd[0], STDIN_FILENO);
@@ -112,20 +112,20 @@ int main(int argc, char **argv, char **envp)
 //        close(fd[1]);
 //        execlp("grep", "grep", "rtt", NULL);
 //    }
-    
+
 //    close(fd[0]);
 //    close(fd[1]);
-    
+
 //    waitpid(pid1, NULL, 0);
 //    waitpid(pid2, NULL, 0);
-    
+
 //    return 0;
 //}
 
 /* Example of using perror */
 
 //{
-//	perror("Fork");
+//	perror("fork");
 //}
 
 /* Example of using access */
@@ -139,15 +139,15 @@ int main(int argc, char **argv, char **envp)
 
 /* Example of using open */
 
-{
-	int fd = open("a.out", O_RDONLY);
-	printf("fd of a.out = %d\n", fd);
-	char *test;
-	int i = 5;
-	while (i--)
-	{
-		test = get_next_line(fd);
-		printf("%s", test);
-		free(test);
-	}
-}
+//{
+//	int fd = open("a.out", O_RDONLY);
+//	printf("fd of a.out = %d\n", fd);
+//	char *test;
+//	int i = 5;
+//	while (i--)
+//	{
+//		test = get_next_line(fd);
+//		printf("%s", test);
+//		free(test);
+//	}
+//}
