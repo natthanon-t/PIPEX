@@ -6,7 +6,7 @@
 /*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:00:34 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/07 22:26:34 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/09 22:40:49 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	pipex(int file2, char **argv, char **envp)
 	if (pid2 == -1)
 		error("Second fork error");
 	if (pid2 == 0)
-		second_child(file2, end, full_cmd(argv[3], envp), envp);
+		second_child(file2, end, argv, envp);
 	close(end[0]);
 	close(end[1]);
 	waitpid(pid1, NULL, 0);
@@ -46,8 +46,7 @@ int	main(int argc, char **argv, char **envp)
 		error("Input parameter error");
 	file2 = open(argv[4], O_TRUNC | O_WRONLY | O_CREAT, 0644);
 	if (file2 == -1)
-		message_error("no such file or directory: ", argv[4]);
+		message_error("no such file or directory: ", argv[argc - 1], EXIT_FAILURE);
 	pipex(file2, argv, envp);
 	close(file2);
-	return (0);
 }

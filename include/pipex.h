@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:02:04 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/07 15:06:58 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/09 22:20:53 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 char	**split_path(char **envp);
 char	*find_path(char **path, char *cmd);
 void	first_child(char **argv, int *end, char **envp);
-void	second_child(int file2, int *end, char **cmd, char **envp);
+void	second_child(int file2, int *end, char **argv, char **envp);
 void	free_2(char **str);
 char	**full_cmd(char *cmd, char **envp);
 int		ft_2dlen(char **str);
 void	error(char *str);
-void	message_error(char *str, char *var);
+void	message_error(char *str, char *var, int nbr);
 
 #endif

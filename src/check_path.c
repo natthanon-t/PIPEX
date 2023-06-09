@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_path.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 17:37:56 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/07 14:37:57 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/09 22:21:24 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ char	*find_path(char **path, char *cmd)
 
 	i = 0;
 	new_cmd = ft_split(cmd, ' ');
-	if (access(new_cmd[0], 0) == 0)
+	if (access(new_cmd[0], F_OK) == 0)
 		return (new_cmd[0]);
 	cmd_test = ft_strjoin("/", new_cmd[0]);
 	while (path[i])
 	{
 		path_test = ft_strjoin(path[i++], cmd_test);
-		if (access(path_test, 0) == 0)
+		if (access(path_test, F_OK) == 0)
 		{
 			free(cmd_test);
 			free_2(new_cmd);
@@ -53,7 +53,9 @@ char	*find_path(char **path, char *cmd)
 	}
 	free_2(new_cmd);
 	free(cmd_test);
-	message_error("command not found: ", cmd);
+	if (ft_strchr(cmd, '/'))
+		message_error("no such file or directory: ", cmd, 127);
+	message_error("command not found: ", cmd, 127);
 	return (NULL);
 }
 

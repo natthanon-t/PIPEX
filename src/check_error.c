@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:36:36 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/07 17:06:42 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/09 22:13:44 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	error(char *str)
 	exit(EXIT_FAILURE);
 }
 
-void	message_error(char *str, char *var)
+void	message_error(char *str, char *var, int nbr)
 {
 	ft_printf("%s", str);
 	ft_printf("%s\n", var);
-	exit(EXIT_FAILURE);
+	exit(nbr);
 }
