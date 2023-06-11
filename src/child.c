@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   child.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 20:55:42 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/09 22:33:20 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/11 11:59:12 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-#include "libft.h"
 
 void	first_child(char **argv, int *end, char **envp)
 {

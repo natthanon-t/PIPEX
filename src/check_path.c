@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_path.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 17:37:56 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/09 22:21:24 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/11 11:59:08 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-#include "libft.h"
 
 char	**split_path(char **envp)
 {
