@@ -6,7 +6,7 @@
 /*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:36:36 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/11 11:59:04 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:24:14 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	error(char *str)
 
 void	message_error(char *str, char *var, int nbr)
 {
-	ft_printf("%s", str);
-	ft_printf("%s\n", var);
+	nbr = 1;
+	write(2, str, ft_strlen(str));
+	write(2, var, ft_strlen(var));
+	write(2, "\n", 1);
 	exit(nbr);
 }

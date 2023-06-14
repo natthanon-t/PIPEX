@@ -6,21 +6,35 @@
 /*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 17:37:56 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/11 11:59:08 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/14 17:41:34 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char	**split_path(char **envp)
+void	free_3( char *cmd_path, char **path, char **tmp_cmd)
+{
+	free(cmd_path);
+	free_2(path);
+	free_2(tmp_cmd);
+}
+
+char	**split_path(char **envp, char **cmd)
 {
 	char	*all_path;
 	char	**path;
 	int		i;
 
 	i = 0;
-	while (ft_strncmp(envp[i], "PATH", 4) != 0)
+	if (!cmd)
+	{
+		free_2(cmd);
+		return (NULL);
+	}
+	while (ft_strncmp(envp[i], "PATH", 4) != 0 && envp[i])
 		i++;
+	if (envp[i] == NULL)
+		return (NULL);
 	all_path = ft_substr(envp[i], 5, ft_strlen(envp[i]));
 	path = ft_split(all_path, ':');
 	free(all_path);
@@ -52,9 +66,6 @@ char	*find_path(char **path, char *cmd)
 	}
 	free_2(new_cmd);
 	free(cmd_test);
-	if (ft_strchr(cmd, '/'))
-		message_error("no such file or directory: ", cmd, 127);
-	message_error("command not found: ", cmd, 127);
 	return (NULL);
 }
 
@@ -68,8 +79,12 @@ char	**full_cmd(char *cmd, char **envp)
 
 	i = 0;
 	tmp_cmd = ft_split(cmd, ' ');
-	path = split_path(envp);
+	path = split_path(envp, tmp_cmd);
+	if (!path)
+		return (NULL);
 	cmd_path = find_path(path, tmp_cmd[i]);
+	if (!cmd_path)
+		return (NULL);
 	new_cmd = (char **)ft_calloc(ft_2dlen(tmp_cmd) + 1, sizeof(char *));
 	if (!new_cmd)
 		return (NULL);
@@ -79,8 +94,6 @@ char	**full_cmd(char *cmd, char **envp)
 		while (tmp_cmd[++i])
 			new_cmd[i] = ft_strdup(tmp_cmd[i]);
 	}
-	free(cmd_path);
-	free_2(path);
-	free_2(tmp_cmd);
+	free_3(cmd_path, path, tmp_cmd);
 	return (new_cmd);
 }
