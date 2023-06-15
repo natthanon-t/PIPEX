@@ -19,14 +19,8 @@
 //	exit(WEXITSTATUS(status));
 //	return 0;
 //}
-
+#include "libft.h"
 int main(int argc, char **argv, char **envp)
 {
-	int i =0;
-	while (strncmp(envp[i], "PATH", 4) != 0 && envp[i])
-	{
-		printf("i = %d\n", i);
-		printf("envp = %s\n", envp[i++]);
-	}
-	printf("tes2asdasdasdas\n");
+	printf("test %d\n", open(argv[4], O_TRUNC | O_WRONLY | O_CREAT, 0644));
 }

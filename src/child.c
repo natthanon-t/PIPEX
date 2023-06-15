@@ -6,7 +6,7 @@
 /*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 20:55:42 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/14 17:42:18 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:04:31 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	first_child(char **argv, int *end, char **envp)
 
 	file1 = open(argv[1], O_RDONLY);
 	if (file1 == -1)
-		message_error("no such file or directory: ", argv[1], 127);
+		message_error("no such file or directory: ", argv[1], 0);
 	cmd = full_cmd(argv[2], envp);
 	if (!cmd)
 	{
