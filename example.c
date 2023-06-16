@@ -1,6 +1,5 @@
 #include "include/pipex.h"
 #include "libft/include/libft.h"
-#include "libft/include/get_next_line.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

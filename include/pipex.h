@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:02:04 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/14 16:30:34 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:58:26 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	free_2(char **str);
 char	**full_cmd(char *cmd, char **envp);
 int		ft_2dlen(char **str);
 void	error(char *str);
-void	message_error(char *str, char *var, int nbr);
+void	message_error(char *str, char *var);
+void	cmd_error(char *argv, char **cmd);
 void	free_3( char *cmd_path, char **path, char **tmp_cmd);
 
 #endif

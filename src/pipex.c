@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:00:34 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/15 16:05:20 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:46:25 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	file_permis(int argc, char **argv)
 {
+	if (access(argv[1], F_OK) != -1)
+		return ;
 	if (access(argv[1], R_OK) == -1)
 	{
 		ft_printf("permission denied: %s\n", argv[1]);
@@ -36,15 +38,15 @@ void	pipex(int file2, char **argv, char **envp)
 	int		end[2];
 
 	if (pipe(end) == -1)
-		error("Pipe error");
+		error("Pipe error\n");
 	pid1 = fork();
 	if (pid1 == -1)
-		error("First fork error");
+		error("First fork error\n");
 	if (pid1 == 0)
 		first_child(argv, end, envp);
 	pid2 = fork();
 	if (pid2 == -1)
-		error("Second fork error");
+		error("Second fork error\n");
 	if (pid2 == 0)
 		second_child(file2, end, argv, envp);
 	close(end[0]);
@@ -64,6 +66,5 @@ int	main(int argc, char **argv, char **envp)
 	file2 = open(argv[4], O_TRUNC | O_WRONLY | O_CREAT, 0644);
 	if (file2 == -1)
 		file_permis(argc, argv);
-	file_permis(argc, argv);
 	pipex(file2, argv, envp);
 }
