@@ -3,34 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:00:34 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/16 14:46:25 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/16 17:48:36 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	file_permis(int argc, char **argv)
-{
-	if (access(argv[1], F_OK) != -1)
-		return ;
-	if (access(argv[1], R_OK) == -1)
-	{
-		ft_printf("permission denied: %s\n", argv[1]);
-		if (access(argv[argc - 1], F_OK | W_OK) == -1)
-			ft_printf("permission denied: %s\n", argv[argc - 1]);
-		exit(EXIT_FAILURE);
-	}
-	if (access(argv[argc - 1], F_OK | W_OK) == -1)
-	{
-		ft_printf("permission denied: %s\n", argv[argc - 1]);
-		exit(EXIT_FAILURE);
-	}
-}
-
-void	pipex(int file2, char **argv, char **envp)
+void	pipex(char **argv, char **envp)
 {
 	pid_t	pid1;
 	pid_t	pid2;
@@ -48,23 +30,17 @@ void	pipex(int file2, char **argv, char **envp)
 	if (pid2 == -1)
 		error("Second fork error\n");
 	if (pid2 == 0)
-		second_child(file2, end, argv, envp);
+		second_child(end, argv, envp);
 	close(end[0]);
 	close(end[1]);
 	waitpid(pid1, &status, 0);
 	waitpid(pid2, &status, 0);
-	close(file2);
 	exit(WEXITSTATUS(status));
 }
 
 int	main(int argc, char **argv, char **envp)
 {
-	int	file2;
-
 	if (argc != 5)
 		error("Input parameter error");
-	file2 = open(argv[4], O_TRUNC | O_WRONLY | O_CREAT, 0644);
-	if (file2 == -1)
-		file_permis(argc, argv);
-	pipex(file2, argv, envp);
+	pipex(argv, envp);
 }

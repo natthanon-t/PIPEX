@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   child.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 20:55:42 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/16 14:59:54 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/16 17:30:51 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@ void	first_child(char **argv, int *end, char **envp)
 
 	file1 = open(argv[1], O_RDONLY);
 	if (file1 == -1)
-	{
-		message_error("no such file or directory: ", argv[1]);
-		exit(EXIT_SUCCESS);
+	{	
+		if (errno == 13)
+			message_error("permission denied: ", argv[1]);
+		else
+			message_error("no such file or directory: ", argv[1]);
+		exit(EXIT_FAILURE);
 	}
 	cmd = full_cmd(argv[2], envp);
 	if (!cmd)
@@ -36,10 +39,20 @@ void	first_child(char **argv, int *end, char **envp)
 	}
 }
 
-void	second_child(int file2, int *end, char **argv, char **envp)
+void	second_child(int *end, char **argv, char **envp)
 {
 	char	**cmd;
+	int		file2;
 
+	file2 = open(argv[4], O_TRUNC | O_WRONLY | O_CREAT, 0644);
+	if (file2 == -1)
+	{	
+		if (errno == 13)
+			message_error("permission denied: ", argv[4]);
+		else
+			message_error("no such file or directory: ", argv[4]);
+		exit(EXIT_FAILURE);
+	}
 	cmd = full_cmd(argv[3], envp);
 	if (!cmd)
 		cmd_error(argv[3], cmd);
