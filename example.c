@@ -11,16 +11,16 @@ int main(int argc, char **argv, char **envp)
 
 /* Example of using argument command line */
 
-{
-	int i =0;
-	/* argv[0] - program's name */
-	while (argv[i])
-	{
-		printf("argv[%d] = %s\n", i, argv[i]);
-		i++;
-	}
-	printf("argc = %d\n", argc);
-}
+//{
+//	int i =0;
+//	/* argv[0] - program's name */
+//	while (argv[i])
+//	{
+//		printf("argv[%d] = %s\n", i, argv[i]);
+//		i++;
+//	}
+//	printf("argc = %d\n", argc);
+//}
 
 /* Example of using pipe function */
 
@@ -125,6 +125,7 @@ int main(int argc, char **argv, char **envp)
 
 //{
 //	perror("fork");
+//	//printf("test");
 //}
 
 /* Example of using access */
