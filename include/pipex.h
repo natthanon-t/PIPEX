@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:02:04 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/16 21:53:53 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/06/18 13:16:48 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include "libft.h"
 
 char	**split_path(char **envp, char **cmd);
-char	*find_path(char **path, char *cmd);
+char	*find_path(char **path, char **cmd);
 void	first_child(char **argv, int *end, char **envp);
 void	second_child(int *end, char **argv, char **envp);
 void	free_2(char **str);
