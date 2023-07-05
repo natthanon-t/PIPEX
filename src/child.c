@@ -6,7 +6,7 @@
 /*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 20:55:42 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/24 23:43:46 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:53:39 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	first_child(char **argv, int *end, char **envp)
 	dup2(end[1], STDOUT_FILENO);
 	close(file1);
 	close(end[0]);
+	close(file1);
 	if (execve(cmd[0], cmd, envp) == -1)
 	{
 		free_2(cmd);
@@ -55,6 +56,7 @@ void	second_child(int *end, char **argv, char **envp)
 	dup2(file2, STDOUT_FILENO);
 	close(file2);
 	close(end[1]);
+	close(file2);
 	if (execve(cmd[0], cmd, envp) == -1)
 	{
 		free_2(cmd);
