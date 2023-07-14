@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:36:36 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/07/05 15:33:16 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/07/10 18:29:32 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ void	message_error(char *str, char *var)
 	ft_putstr_fd("\n", STDERR_FILENO);
 }
 
-void	cmd_error(char *argv, char **cmd)
+void	cmd_error(char *argv)
 {
+	char	**cmd;
+
 	cmd = ft_split(argv, ' ');
 	if (ft_strrchr(cmd[0], '/'))
 		message_error("No such file or directory", cmd[0]);

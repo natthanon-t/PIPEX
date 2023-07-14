@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:00:34 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/06/16 21:38:53 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/07/14 14:13:59 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,25 @@
 
 void	pipex(char **argv, char **envp)
 {
-	pid_t	pid1;
-	pid_t	pid2;
 	int		status;
-	int		end[2];
+	t_pipex	var;
 
-	if (pipe(end) == -1)
+	if (pipe(var.end) == -1)
 		error("Pipe");
-	pid1 = fork();
-	if (pid1 == -1)
+	var.pid1 = fork();
+	if (var.pid1 == -1)
 		error("First fork");
-	if (pid1 == 0)
-		first_child(argv, end, envp);
-	pid2 = fork();
-	if (pid2 == -1)
+	if (var.pid1 == 0)
+		first_child(var, argv, var.end, envp);
+	var.pid2 = fork();
+	if (var.pid2 == -1)
 		error("Second fork");
-	if (pid2 == 0)
-		second_child(end, argv, envp);
-	close(end[0]);
-	close(end[1]);
-	waitpid(pid1, &status, 0);
-	waitpid(pid2, &status, 0);
+	if (var.pid2 == 0)
+		second_child(var, argv, var.end, envp);
+	close(var.end[0]);
+	close(var.end[1]);
+	waitpid(var.pid1, &status, 0);
+	waitpid(var.pid2, &status, 0);
 	exit(WEXITSTATUS(status));
 }
 
