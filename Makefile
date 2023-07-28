@@ -6,13 +6,13 @@
 #    By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/30 15:00:30 by ntairatt          #+#    #+#              #
-#    Updated: 2023/07/14 15:01:31 by ntairatt         ###   ########.fr        #
+#    Updated: 2023/07/28 17:40:04 by ntairatt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	pipex
 
-CC	=	cc -g
+CC	=	cc
 
 CFLAGS = -Wall -Wextra -Werror -I$(DIR_INC) -I$(LIBFT_DIR)
 

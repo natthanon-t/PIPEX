@@ -6,7 +6,7 @@
 /*   By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:02:04 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/07/14 14:10:33 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/07/28 10:43:29 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,12 @@ char	*find_path(char **path, char **cmd);
 void	first_child(t_pipex var, char **argv, int *end, char **envp);
 void	second_child(t_pipex var, char **argv, int *end, char **envp);
 void	free_2(char **str);
+void	free_3(char *cmd_path, char **path, char **tmp_cmd);
 char	**full_cmd(t_pipex var, char *cmd, char **envp);
 int		ft_2dlen(char **str);
 void	error(char *str);
 void	message_error(char *str, char *var);
 void	cmd_error(char *argv);
+int		malloc_error(char **new_cmd, int i);
 
 #endif
