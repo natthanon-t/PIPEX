@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ntairatt <ntairatt@student.42.fr>          +#+  +:+       +#+         #
+#    By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/30 15:00:30 by ntairatt          #+#    #+#              #
-#    Updated: 2023/07/28 17:40:04 by ntairatt         ###   ########.fr        #
+#    Updated: 2023/07/31 20:59:47 by ntairatt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,9 @@ DIR_SRC	=	src
 RM	=	rm -rf
 
 $(NAME):
-	@make bonus -C libft
+	@make -C libft
 	@$(CC) $(CFLAGS) $(addprefix $(DIR_SRC)/, $(SRCS)) $(LIBFT) -o $(NAME)
+	@echo "Pipex is ready"
 
 .PHONY: all clean fclean re norm
 all: $(NAME)
