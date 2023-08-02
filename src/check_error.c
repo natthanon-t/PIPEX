@@ -6,7 +6,7 @@
 /*   By: ntairatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:36:36 by ntairatt          #+#    #+#             */
-/*   Updated: 2023/07/31 21:06:00 by ntairatt         ###   ########.fr       */
+/*   Updated: 2023/08/02 11:14:52 by ntairatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	cmd_error(char *argv)
 	char	**cmd;
 
 	cmd = ft_split(argv, ' ');
+	if (!cmd)
+		exit(EXIT_FAILURE);
 	if (access(cmd[0], X_OK) == -1)
 	{
 		if (errno == 13)
