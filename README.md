@@ -48,5 +48,5 @@ Pipex supports the following commands:
 To extract lines containing "example" from file1 and count the occurrences using grep and wc, the following command can be used:
 
 ```bash
-./pipex file1 "grep example" "wc -l" file2
+./pipex infile "grep example" "wc -l" outfile
 ```
