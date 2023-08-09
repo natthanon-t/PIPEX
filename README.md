@@ -1,4 +1,4 @@
-# Pipex 42
+# PIPEX 42
 
 ## Table of Contents
 
